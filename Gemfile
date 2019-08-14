@@ -27,10 +27,11 @@ gem 'rails', '~> 5.2.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'database_cleaner'
+  gem 'dotenv-rails'
+  gem 'factory_bot'
   gem 'pry'
   gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot'
-  gem 'database_cleaner'
 end
 
 group :development do
