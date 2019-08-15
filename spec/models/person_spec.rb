@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Person, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Person, type: :model do
+  context 'Associations' do
+    it { should have_many(:animals) }
+  end
 end
