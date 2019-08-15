@@ -5,6 +5,7 @@ class CreateAnimals < ActiveRecord::Migration[5.2]
       t.string 'name'
       t.float 'monthly_cost'
       t.references :person
+      t.references :animal_type
 
       t.timestamps
     end

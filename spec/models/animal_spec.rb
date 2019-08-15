@@ -1,5 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Animal, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Animal, type: :model do
+  context 'Associations' do
+    it { should belong_to(:person) }
+    it { should belong_to(:animal_type) }
+  end
 end
