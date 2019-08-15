@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: 6d9ef88bb05199dd5e3a30c8902d8a8e2bb1004d
+  branch: master
+  specs:
+    faker (2.1.2)
+      i18n (>= 0.8)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -174,6 +182,7 @@ DEPENDENCIES
   database_cleaner
   dotenv-rails
   factory_bot_rails
+  faker!
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
