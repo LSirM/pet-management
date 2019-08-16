@@ -1,8 +1,7 @@
 class Person < ApplicationRecord
   include Formatters::DateFormatter
-
+  attr_accessor :dt_of_birth
   has_many :animals
-
   before_save :convert_to_date
 
   def age
