@@ -32,7 +32,7 @@ animals = [
 people.each do |person_hsh|
   person = Person.new
   person.name = person_hsh[:name]
-  person.dt_birth = person.convert_to_date(person_hsh[:dt_birth])
+  person.dt_of_birth = person_hsh[:dt_birth]
   person.document = person_hsh[:document]
   person.save!
 end
