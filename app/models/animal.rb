@@ -5,6 +5,7 @@ class Animal < ApplicationRecord
 
   before_save :validate_by_person_age
   before_save :validate_by_person_name
+  before_save :validate_by_animals_cost
 
   private
 
