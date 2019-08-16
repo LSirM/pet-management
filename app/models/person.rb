@@ -18,4 +18,11 @@ class Person < ApplicationRecord
   def animals_total_cost
     self.animals.sum(&:monthly_cost)
   end
+
+  private
+
+    def convert_to_date
+      return true if !self.dt_birth.is_a?(String)
+      self.dt_birth = Formatters::DateFormatter.convert_brazilian_date_to_default(date)
+    end
 end
