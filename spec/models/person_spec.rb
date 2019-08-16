@@ -13,5 +13,8 @@ describe Person, type: :model do
     it 'should have DateTime dt_birth before save' do
       expect(person.convert_to_date(brazilian_dt_of_birth).class).to eq(DateTime)
     end
+
+    it { should be_valid(person) }
+
   end
 end
