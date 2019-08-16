@@ -14,4 +14,8 @@ class Person < ApplicationRecord
   def name_begins_with?(letter)
     (self.name.split('').first == letter)
   end
+
+  def animals_total_cost
+    self.animals.sum(&:monthly_cost)
+  end
 end
