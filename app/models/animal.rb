@@ -15,4 +15,8 @@ class Animal < ApplicationRecord
     def animal_type_limitation
       Validators::AnimalTypeValidator.restric_bird_animal_type
     end
+
+    def validate_by_person_age
+      !(self.animal_type_id == animal_type_limitation&.id && self.person.age < 18)
+    end
 end
