@@ -48,7 +48,19 @@ describe Animal, type: :model do
 
   context 'Animals Cost' do
     describe 'above 1k' do
-      it 'should not allow a person to have more animals'
+      let(:valid_person){ create(:person, dt_birth: 18.years.ago) }
+      let(:invalid_person){ create(:person, dt_birth: 27.years.ago) }
+      let(:animal_type){ create(:animal_type) }
+
+      let!(:first_animal){ create(:animal, person_id: valid_person.id, animal_type_id: animal_type.id) }
+      let!(:second_animal){ create(:animal, monthly_cost: 900.0, person_id: invalid_person.id, animal_type_id: animal_type.id) }
+      let!(:third_animal){ create(:animal, person_id: invalid_person.id, animal_type_id: animal_type.id) }
+      let!(:fourth_animal){ build(:animal, person_id: invalid_person.id, animal_type_id: animal_type.id) }
+
+      it 'should not allow a person to have more animals' do
+        fourth_animal.save
+        expect(fourth_animal).to_not be_persisted
+      end
     end
 
     describe 'below 1k' do
