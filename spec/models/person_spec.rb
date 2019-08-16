@@ -16,5 +16,11 @@ describe Person, type: :model do
 
     it { should be_valid(person) }
 
+    it 'should be persisted' do
+      person.convert_to_date(brazilian_dt_of_birth)
+      person.save
+      expect(person).to be_persisted
+    end
+
   end
 end
