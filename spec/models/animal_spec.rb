@@ -19,6 +19,11 @@ describe Animal, type: :model do
         first_animal.save
         expect(first_animal).to be_persisted
       end
+      
+      it 'should fail if Person is under 18 years old' do
+        second_animal.save
+        expect(second_animal).to_not be_persisted
+      end
     end
   end
 end
