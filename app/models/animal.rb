@@ -12,6 +12,7 @@ class Animal < ApplicationRecord
     end
 
     def validate_by_person_age
-      !(self.animal_type_id == bird_limitation&.id && self.person.age < 18)
+      return true if !(self.animal_type_id == bird_limitation&.id && self.person.age < 18)
+      throw(:abort)
     end
 end
