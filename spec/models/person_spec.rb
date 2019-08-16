@@ -23,4 +23,16 @@ describe Person, type: :model do
     end
 
   end
+
+  describe 'Age' do
+    let(:dt_of_birth){ Faker::Date.birthday(min_age: 1, max_age: 65) }
+    let(:brazilian_dt_of_birth){ I18n.l(dt_of_birth, format: :long) }
+    let(:person){ create(:person, dt_birth: Person.new.convert_to_date(brazilian_dt_of_birth)) }
+
+    let(:age){ (Date.today.year - person.dt_birth.year) }
+
+    it "should return person's age" do
+      expect(person.age).to eq(age)
+    end
+  end
 end
