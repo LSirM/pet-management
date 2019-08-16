@@ -3,9 +3,7 @@ class Person < ApplicationRecord
 
   has_many :animals
 
-  def convert_to_date(date)
-    Formatters::DateFormatter.convert_brazilian_date_to_default(date)
-  end
+  before_save :convert_to_date
 
   def age
     (Date.today.year - self.dt_birth.year)
