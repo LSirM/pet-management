@@ -11,6 +11,10 @@ class Animal < ApplicationRecord
       Validators::AnimalTypeValidator.restric_bird_animal_type
     end
 
+    def cat_limitation
+      Validators::AnimalTypeValidator.restrict_cat_animal_type
+    end
+
     def validate_by_person_age
       return true if !(self.animal_type_id == bird_limitation&.id && self.person.age < 18)
       throw(:abort)
