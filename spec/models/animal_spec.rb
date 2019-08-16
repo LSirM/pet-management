@@ -38,6 +38,11 @@ describe Animal, type: :model do
         first_animal.save
         expect(first_animal).to be_persisted
       end
+
+      it 'should fail if person name start with A' do
+        second_animal.save
+        expect(second_animal).to_not be_persisted
+      end
     end
   end
 end
