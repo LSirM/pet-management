@@ -8,8 +8,8 @@ describe Animal, type: :model do
 
   context 'AnimalType' do
     describe 'Andorinhas' do
-      let(:valid_person){ create(:person, dt_birth: 20.years.ago) }
-      let(:invalid_person){ create(:person, dt_birth: 8.years.ago) }
+      let(:valid_person){ create(:person, dt_of_birth: I18n.l(20.years.ago, format: :long)) }
+      let(:invalid_person){ create(:person, dt_of_birth: I18n.l(8.years.ago, format: :long)) }
       
       let(:animal_type){ create(:animal_type, animal_type: 'Andorinha') }
       let!(:first_animal){ build(:animal, person_id: valid_person.id, animal_type_id: animal_type.id) }
