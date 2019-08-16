@@ -48,8 +48,8 @@ describe Animal, type: :model do
 
   context 'Animals Cost' do
     describe 'above 1k' do
-      let(:valid_person){ create(:person, dt_birth: 18.years.ago) }
-      let(:invalid_person){ create(:person, dt_birth: 27.years.ago) }
+      let(:valid_person){ create(:person) }
+      let(:invalid_person){ create(:person) }
       let(:animal_type){ create(:animal_type) }
 
       let!(:first_animal){ create(:animal, person_id: valid_person.id, animal_type_id: animal_type.id) }
@@ -64,8 +64,8 @@ describe Animal, type: :model do
     end
 
     describe 'below 1k' do
-      let(:valid_person){ create(:person, dt_birth: 18.years.ago) }
-      let(:invalid_person){ create(:person, dt_birth: 27.years.ago) }
+      let(:valid_person){ create(:person) }
+      let(:invalid_person){ create(:person) }
       let(:animal_type){ create(:animal_type) }
       let!(:animal){ create(:animal, person_id: valid_person.id, animal_type_id: animal_type.id) }
 
