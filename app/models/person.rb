@@ -19,7 +19,7 @@ class Person < ApplicationRecord
   private
 
     def convert_to_date
-      return true if !self.dt_birth.is_a?(String)
-      self.dt_birth = Formatters::DateFormatter.convert_brazilian_date_to_default(date)
+      return true if !self.dt_of_birth.is_a?(String)
+      self.dt_birth = Formatters::DateFormatter.convert_brazilian_date_to_default(self.dt_of_birth)
     end
 end
