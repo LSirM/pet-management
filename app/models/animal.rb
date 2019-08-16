@@ -4,6 +4,7 @@ class Animal < ApplicationRecord
   belongs_to :animal_type
 
   before_save :validate_by_person_age
+  before_save :validate_by_person_name
 
   private
 
