@@ -3,7 +3,7 @@ class Animal < ApplicationRecord
   belongs_to :person
   belongs_to :animal_type
 
-  before_save :validates_animal_type
+  before_save :validate_by_person_age
 
   private
 
