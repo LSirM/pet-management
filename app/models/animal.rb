@@ -19,4 +19,9 @@ class Animal < ApplicationRecord
       return true if !(self.animal_type_id == bird_limitation&.id && self.person.age < 18)
       throw(:abort)
     end
+
+    def validate_by_person_name
+      return true if !(self.animal_type_id == cat_limitation&.id && self.person.name_begins_with?('A'))
+      throw(:abort)
+    end
 end
