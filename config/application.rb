@@ -13,6 +13,7 @@ module Myapp
     I18n.locale = 'pt-BR'
     config.i18n.available_locales = 'pt-BR'
     config.i18n.enforce_available_locales = false
+    config.autoload_paths += %W( #{config.root}/lib/modules/)
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
