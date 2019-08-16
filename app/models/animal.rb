@@ -25,4 +25,9 @@ class Animal < ApplicationRecord
       return true if !(self.animal_type_id == cat_limitation&.id && self.person.name_begins_with?('A'))
       throw(:abort)
     end
+
+    def validate_by_animals_cost
+      return true if (self.person.animals_total_cost < 1000)
+      throw(:abort)
+    end
 end
