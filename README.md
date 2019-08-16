@@ -56,23 +56,23 @@ Inclua os trechos de código que respondem as perguntas abaixo:
 
 ### Qual é o custo médio dos animais do tipo cachorro?
 
-    `Animal.joins(:animal_type).where('animal_type = ?', 'Cachorro').average(:monthly_cost).to_f`
+    Animal.joins(:animal_type).where('animal_type = ?', 'Cachorro').average(:monthly_cost).to_f
 
 ### Quantos cachorros existem no sistema?
 
-    `Animal.joins(:animal_type).where('animal_type = ?', 'Cachorro').size`
+    Animal.joins(:animal_type).where('animal_type = ?', 'Cachorro').size
 
 ### Qual o nome dos donos dos cachorros (Array de nomes)
 
-    `Person.joins(:animals).merge(Animal.joins(:animal_type)).where('animal_type = ?', 'Cachorro').pluck(:name)`
+    Person.joins(:animals).merge(Animal.joins(:animal_type)).where('animal_type = ?', 'Cachorro').pluck(:name)
 
 ### Retorne as pessoas ordenando pelo custo que elas tem com os animais (Maior para menor)
 
-    `Person.joins(:animals).order(monthly_cost: :desc)`
+    Person.joins(:animals).order(monthly_cost: :desc)
 
 ### Levando em consideração o custo mensal, qual será o custo de 3 meses de cada pessoa?
 
-    `Person.joins(:animals).group('name').sum('3*monthly_cost')`
+    Person.joins(:animals).group('name').sum('3*monthly_cost')
 
 # Entrega do projeto
 
