@@ -25,5 +25,19 @@ describe Animal, type: :model do
         expect(second_animal).to_not be_persisted
       end
     end
+
+    describe 'Cat' do
+      let(:valid_person){ create(:person, name: 'Pedro') }
+      let(:invalid_person){ create(:person, name: 'Alberto') }
+      
+      let(:animal_type){ create(:animal_type, animal_type: 'Gato') }
+      let!(:first_animal){ build(:animal, person_id: valid_person.id, animal_type_id: animal_type.id) }
+      let!(:second_animal){ build(:animal, person_id: invalid_person.id, animal_type_id: animal_type.id) }
+
+      it 'should succeed person name does not start with A' do
+        first_animal.save
+        expect(first_animal).to be_persisted
+      end
+    end
   end
 end
