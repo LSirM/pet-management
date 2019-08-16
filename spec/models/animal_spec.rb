@@ -1,12 +1,12 @@
 require 'rails_helper'
 
 describe Animal, type: :model do
-  context 'Associations' do
+  describe 'Associations' do
     it { should belong_to(:person) }
     it { should belong_to(:animal_type) }
   end
 
-  context 'AnimalType' do    
+  context 'AnimalType' do
     describe 'Andorinhas' do
       let(:valid_person){ create(:person, dt_birth: 20.years.ago) }
       let(:invalid_person){ create(:person, dt_birth: 8.years.ago) }
@@ -42,6 +42,17 @@ describe Animal, type: :model do
       it 'should fail if person name start with A' do
         second_animal.save
         expect(second_animal).to_not be_persisted
+      end
+    end
+  end
+
+  context 'Animals Cost' do
+    describe 'above 1k' do
+      it 'should not allow a person to have more animals'
+    end
+
+    describe 'below 1k' do
+      it 'should allow a person to have another animal' do
       end
     end
   end
