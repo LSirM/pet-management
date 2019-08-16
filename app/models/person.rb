@@ -10,4 +10,8 @@ class Person < ApplicationRecord
   def age
     (Date.today.year - self.dt_birth.year)
   end
+
+  def name_begins_with?(letter)
+    (self.name.split('').first == letter)
+  end
 end
