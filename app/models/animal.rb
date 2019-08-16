@@ -13,6 +13,6 @@ class Animal < ApplicationRecord
     end
 
     def animal_type_limitation
-      Validators::AnimalTypeValidator.restric_animal_type
+      Validators::AnimalTypeValidator.restric_bird_animal_type
     end
 end
