@@ -6,7 +6,7 @@ describe Person, type: :model do
   end
 
   context 'Creation' do
-    let(:person){ build(:person) }
+    let(:person){ create(:person) }
     it 'should have DateTime dt_birth before save' do
       expect(person.dt_birth.class).to eq(ActiveSupport::TimeWithZone)
     end
@@ -21,7 +21,7 @@ describe Person, type: :model do
   end
 
   describe 'Age' do
-    let(:person){ build(:person)}
+    let(:person){ create(:person)}
     let(:age){ (Date.today.year - person.dt_birth.year) }
 
     it "should return person's age" do
