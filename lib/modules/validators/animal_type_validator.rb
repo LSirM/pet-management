@@ -9,5 +9,6 @@ module Validators
     def self.restrict_cat_animal_type
       animal_type = AnimalType.find_by(animal_type: 'Gato')
       animal_type
+    end
   end
 end
